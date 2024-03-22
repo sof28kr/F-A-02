@@ -32,14 +32,23 @@ class _FormularioPageState extends State<FormularioPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Evento 01'),
+          title: Text('Eventohfghgfh 01'),
         ),
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
           children: [
-            _crearInputNombre(), // TextField con múltiples opciones de decoración
+            Row(
+              children: <Widget>[
+                Expanded(child: _crearInputDni()),
+                Expanded(
+                    child: Padding(
+                        padding: EdgeInsetsDirectional.all(15),
+                        child: _BuscarDatos()))
+              ],
+            ),
+            // TextField con múltiples opciones de decoración
             Divider(),
-            _crearInputDni(), // TextField con múltiples opciones de decoración
+            _crearInputNombre(), // TextField con múltiples opciones de decoración
             Divider(),
             _crearInputTelefono(), // TextField con múltiples opciones de decoración
             Divider(),
@@ -49,9 +58,29 @@ class _FormularioPageState extends State<FormularioPage> {
             Divider(),
             _crearInputRuc(),
             Divider(),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text('Firma del Participante',
+                      textAlign: TextAlign.center),
+                ),
+                Expanded(
+                  child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      child: _SubirFirma()),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
             _crearBoton(),
             Divider(),
-            Divider(),
+
             _visualizarDatos(),
           ],
         ));
@@ -94,6 +123,24 @@ class _FormularioPageState extends State<FormularioPage> {
           });
         },
         child: Text('Registrar Asistencia'));
+  }
+
+  Widget _SubirFirma() {
+    final estiloBoton = FilledButton.styleFrom(
+        textStyle: TextStyle(color: Colors.green, fontSize: 15));
+    return FilledButton(
+        style: estiloBoton,
+        onPressed: () {
+          //TODO
+        },
+        child: Center(child: Text('Ingrese su firma')));
+  }
+
+  Widget _BuscarDatos() {
+    final estiloBoton = FilledButton.styleFrom(
+        textStyle: TextStyle(color: Colors.blue, fontSize: 15));
+    return FilledButton(
+        style: estiloBoton, onPressed: () {}, child: Text('Autocompletar'));
   }
 
   Widget _crearInputNombre() {
