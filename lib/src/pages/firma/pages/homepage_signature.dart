@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:get/get.dart';
 import 'package:signature/signature.dart';
 
 import 'package:registro_asistencia/src/pages/firma/pages/signaturepage_signature.dart';
