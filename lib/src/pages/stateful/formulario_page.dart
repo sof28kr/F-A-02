@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:registro_asistencia/src/pages/firma/pages/app_signature.dart';
 
 class FormularioPage extends StatefulWidget {
   const FormularioPage({Key? key}) : super(key: key);
@@ -132,7 +131,7 @@ class _FormularioPageState extends State<FormularioPage> {
     return FilledButton(
         style: estiloBoton,
         onPressed: () {
-          Signature1();
+          //TODO
         },
         child: Center(child: Text('Ingrese su firma')));
   }
