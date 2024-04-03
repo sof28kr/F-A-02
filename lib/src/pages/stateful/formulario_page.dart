@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:registro_asistencia/src/pages/firma/pages/app_signature.dart';
+
+import 'package:registro_asistencia/src/pages/firma/pages/homepage_signature.dart';
+import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
 
 class FormularioPage extends StatefulWidget {
   const FormularioPage({Key? key}) : super(key: key);
@@ -32,7 +38,7 @@ class _FormularioPageState extends State<FormularioPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Eventohfghgfh 01'),
+          title: Text('Evento 01'),
         ),
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
@@ -122,18 +128,37 @@ class _FormularioPageState extends State<FormularioPage> {
             _RUC = controllerInputRuc.text;
           });
         },
-        child: Text('Registrar Asistencia'));
+        child: const Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 200),
+              child: Text(
+                'REgista',
+                style: TextStyle(fontSize: 15),
+                textAlign: TextAlign.center,
+              ),
+            )));
   }
 
   Widget _SubirFirma() {
     final estiloBoton = FilledButton.styleFrom(
         textStyle: TextStyle(color: Colors.green, fontSize: 15));
     return FilledButton(
-        style: estiloBoton,
-        onPressed: () {
-          //TODO
-        },
-        child: Center(child: Text('Ingrese su firma')));
+      style: estiloBoton,
+      onPressed: () {
+        context.go('/prueba');
+      },
+      child: Align(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Text(
+              'Ingrese su firma',
+              style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.center,
+            ),
+          )),
+    );
   }
 
   Widget _BuscarDatos() {

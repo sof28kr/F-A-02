@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:registro_asistencia/src/pages/firma/pages/homepage_signature.dart';
 
-class Signature1 extends StatelessWidget {
-  const Signature1({Key? key}) : super(key: key);
+void main() {
+  runApp(const Signature());
+}
+
+class Signature extends StatelessWidget {
+  const Signature({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
