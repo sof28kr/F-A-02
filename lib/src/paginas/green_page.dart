@@ -1,6 +1,6 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 
@@ -27,11 +27,14 @@ class GreenPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ElevatedButton(onPressed: onSubmit, child: Text('guardar')),
+                  ElevatedButton(
+                      onPressed: () => onSubmit(context),
+                      child: const Text('guardar')),
                   SizedBox(
                     width: 50,
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('borrar'))
+                  ElevatedButton(
+                      onPressed: () => onClear(), child: Text('borrar'))
                 ],
               ),
               SizedBox(height: 50),
@@ -46,11 +49,41 @@ class GreenPage extends StatelessWidget {
             ],
           ),
         ));
-    Future onSubmit() async {
-      final image = await keySignaturePad.currentState?.toImage();
-      final imageSignature = await image!.toByteData();
-    }
+  }
 
-    //https://www.youtube.com/watch?v=fg2aLXNG0Bc
+  void onClear() {
+    keySignaturePad.currentState?.clear(); // Borrar la firma actual
+    // Restablecer la variable imageSignature a null si es necesario
+  }
+
+  Future<void> onSubmit(BuildContext context) async {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    try {
+      final image = await keySignaturePad.currentState?.toImage();
+      final imageSignature =
+          await image!.toByteData(format: ImageByteFormat.png);
+
+      // Process the image data as needed (e.g., save it, send it to a server, etc.)
+
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('¡Firma guardada correctamente!'),
+          duration:
+              Duration(seconds: 2), // Ajusta la duración según tu preferencia
+        ),
+      ); // Close the dialog
+    } catch (error) {
+      // Handle any errors that occur during the asynchronous operations
+      print('Error: $error');
+      // Optionally show an error message to the user
+    }
   }
 }
