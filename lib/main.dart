@@ -5,6 +5,7 @@ import 'package:registro_asistencia/src/pages/inicio_page.dart';
 import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
 
 import 'package:registro_asistencia/src/app.dart';
+import 'package:registro_asistencia/src/pages/stateful/formulario_page.dart';
 import 'package:registro_asistencia/src/paginas/blue_page.dart';
 import 'package:registro_asistencia/src/paginas/green_page.dart';
 import 'package:registro_asistencia/src/paginas/red_page.dart';
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: GoRouter(initialLocation: '/blue', routes: [
+      routerConfig: GoRouter(initialLocation: '/participantes', routes: [
         GoRoute(
           path: '/blue',
           builder: (context, state) => BluePage(),
@@ -31,7 +32,11 @@ class MainApp extends StatelessWidget {
         GoRoute(
           path: '/green',
           builder: (context, state) => GreenPage(),
-        )
+        ),
+        GoRoute(
+          path: '/participantes',
+          builder: (context, state) => FormularioPage(),
+        ),
       ]),
     );
   }

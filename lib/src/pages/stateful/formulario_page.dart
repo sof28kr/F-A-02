@@ -77,7 +77,7 @@ class _FormularioPageState extends State<FormularioPage> {
                   child: Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                      child: _SubirFirma()),
+                      child: _BotonParaLaFirma()),
                 ),
               ],
             ),
@@ -131,13 +131,20 @@ class _FormularioPageState extends State<FormularioPage> {
         child: const Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 200),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Text(
-                'REgista',
+                'Registrar Asistencia',
                 style: TextStyle(fontSize: 15),
                 textAlign: TextAlign.center,
               ),
             )));
+  }
+
+  Widget _BotonParaLaFirma() {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+        onPressed: () => context.push('/green'),
+        child: Text("Ir a la pagina verde"));
   }
 
   Widget _SubirFirma() {
