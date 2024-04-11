@@ -6,6 +6,8 @@ import 'package:registro_asistencia/src/pages/firma/pages/app_signature.dart';
 import 'package:registro_asistencia/src/pages/firma/pages/homepage_signature.dart';
 import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
 
+import 'package:registro_asistencia/src/paginas/green_page.dart';
+
 class FormularioPage extends StatefulWidget {
   const FormularioPage({Key? key}) : super(key: key);
 
@@ -101,7 +103,9 @@ class _FormularioPageState extends State<FormularioPage> {
         Text('Direccion del asistente: $_direccion'),
         Text('Email del asistente: $_email'),
         Text('Ruc del asistente: $_RUC'),
-        Text('Password: $_password')
+        Text('Password: $_password'),
+
+        // mostrar la firma obtenida
       ],
     );
   }
@@ -144,7 +148,10 @@ class _FormularioPageState extends State<FormularioPage> {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
         onPressed: () => context.push('/green'),
-        child: Text("Ir a la pagina verde"));
+        child: Text(
+          "Ingrese su firma",
+          textAlign: TextAlign.center,
+        ));
   }
 
   Widget _SubirFirma() {

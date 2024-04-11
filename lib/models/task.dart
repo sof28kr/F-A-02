@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
-const String tablaParticipantes = 'tablaParticpantes';
+const String tablaParti = 'participantes';
 
 class TablaFields {
-  static final List<String> values = [
+  final List<String> values = [
     nro,
     dni,
     ruc,

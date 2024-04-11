@@ -1,8 +1,12 @@
+import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:registro_asistencia/src/pages/stateful/formulario_page.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
+
+Uint8List? imagenuit;
 
 class GreenPage extends StatelessWidget {
   GreenPage({super.key});
@@ -71,6 +75,20 @@ class GreenPage extends StatelessWidget {
           await image!.toByteData(format: ImageByteFormat.png);
 
       // Process the image data as needed (e.g., save it, send it to a server, etc.)
+
+      if (imageSignature != null) {
+        Uint8List imagenuit = imageSignature.buffer.asUint8List();
+        Image.memory(imagenuit);
+        // Ahora 'uint8List' contiene los bytes de la imagen
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => FormularioPage()));
+
+        // Puedes usarlo según tus necesidades
+      } else {
+        // Maneja el caso en que 'byteData' sea nulo
+        print("La variable ByteData es nula.");
+      }
 
       Navigator.of(context).pop();
       ScaffoldMessenger.of(context).showSnackBar(
