@@ -68,14 +68,7 @@ class DBParticipantes {
     );
   }
 
-   Future<TablaParticipantes> createTablaParticipantes(
-      TablaParticipantes tablaParticipantes) async {
-    final db = await instance.database;
-    final nro = await db.insert(
-      tablaParticipantes,
-      TablaParticipantes.toMap(),
-    );
-  }
+  
 
 }
 
