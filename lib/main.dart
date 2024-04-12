@@ -5,9 +5,11 @@ import 'package:registro_asistencia/src/pages/inicio_page.dart';
 import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
 
 import 'package:registro_asistencia/src/app.dart';
-import 'package:registro_asistencia/src/pages/stateful/formulario_page.dart';
+import 'package:registro_asistencia/src/pages/stateful/FormularioParticipantes.dart';
+import 'package:registro_asistencia/src/paginas/MostrarParticipantes.dart';
 import 'package:registro_asistencia/src/paginas/blue_page.dart';
-import 'package:registro_asistencia/src/paginas/green_page.dart';
+import 'package:registro_asistencia/src/paginas/IngresoFirma.dart';
+import 'package:registro_asistencia/src/paginas/implementando.dart';
 import 'package:registro_asistencia/src/paginas/red_page.dart';
 
 void main() {
@@ -20,22 +22,26 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: GoRouter(initialLocation: '/participantes', routes: [
+      routerConfig: GoRouter(initialLocation: '/inicio', routes: [
         GoRoute(
-          path: '/blue',
-          builder: (context, state) => BluePage(),
+          path: '/FormularioParticipantes',
+          builder: (context, state) => FormularioParticipantes(),
         ),
         GoRoute(
-          path: '/red',
+          path: '/AsistenciaREgistrada',
           builder: (context, state) => RedPage(),
         ),
         GoRoute(
-          path: '/green',
-          builder: (context, state) => GreenPage(),
+          path: '/IngresoFirma',
+          builder: (context, state) => IngresoFirma(),
         ),
         GoRoute(
-          path: '/participantes',
-          builder: (context, state) => FormularioPage(),
+          path: '/MostrarParticipantes',
+          builder: (context, state) => MostrarParticipantes(),
+        ),
+        GoRoute(
+          path: '/inicio',
+          builder: (context, state) => Implementando(), //FormularioPage()
         ),
       ]),
     );

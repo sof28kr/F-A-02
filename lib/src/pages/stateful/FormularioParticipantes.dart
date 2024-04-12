@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:registro_asistencia/src/pages/firma/pages/app_signature.dart';
-
-import 'package:registro_asistencia/src/pages/firma/pages/homepage_signature.dart';
-import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
-
-import 'package:registro_asistencia/src/paginas/green_page.dart';
-
-class FormularioPage extends StatefulWidget {
-  const FormularioPage({Key? key}) : super(key: key);
+class FormularioParticipantes extends StatefulWidget {
+  const FormularioParticipantes({Key? key}) : super(key: key);
 
   @override
-  _FormularioPageState createState() => _FormularioPageState();
+  _FormularioParticipantesState createState() =>
+      _FormularioParticipantesState();
 }
 
-class _FormularioPageState extends State<FormularioPage> {
+class _FormularioParticipantesState extends State<FormularioParticipantes> {
   String _nombre = '';
   String _dni = '';
   String _telefono = '';
@@ -147,32 +141,11 @@ class _FormularioPageState extends State<FormularioPage> {
   Widget _BotonParaLaFirma() {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-        onPressed: () => context.push('/green'),
+        onPressed: () => context.push('/IngresoFirma'),
         child: Text(
           "Ingrese su firma",
           textAlign: TextAlign.center,
         ));
-  }
-
-  Widget _SubirFirma() {
-    final estiloBoton = FilledButton.styleFrom(
-        textStyle: TextStyle(color: Colors.green, fontSize: 15));
-    return FilledButton(
-      style: estiloBoton,
-      onPressed: () {
-        context.go('/prueba');
-      },
-      child: Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Text(
-              'Ingrese su firma',
-              style: TextStyle(fontSize: 15),
-              textAlign: TextAlign.center,
-            ),
-          )),
-    );
   }
 
   Widget _BuscarDatos() {

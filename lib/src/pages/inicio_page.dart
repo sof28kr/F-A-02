@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:registro_asistencia/src/pages/stateful/formulario_page.dart';
+import 'package:registro_asistencia/src/pages/stateful/FormularioParticipantes.dart';
 
 class InicioPage extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class InicioPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: FormularioPage(),
+        child: FormularioParticipantes(),
       ),
     );
   }

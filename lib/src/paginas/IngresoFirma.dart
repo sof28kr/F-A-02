@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:registro_asistencia/src/pages/stateful/formulario_page.dart';
+import 'package:registro_asistencia/src/pages/stateful/FormularioParticipantes.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 
 Uint8List? imagenuit;
 
-class GreenPage extends StatelessWidget {
-  GreenPage({super.key});
+class IngresoFirma extends StatelessWidget {
+  IngresoFirma({super.key});
   final keySignaturePad = GlobalKey<SfSignaturePadState>();
 
   @override
@@ -81,8 +81,8 @@ class GreenPage extends StatelessWidget {
         Image.memory(imagenuit);
         // Ahora 'uint8List' contiene los bytes de la imagen
 
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => FormularioPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => FormularioParticipantes()));
 
         // Puedes usarlo según tus necesidades
       } else {

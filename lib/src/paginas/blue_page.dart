@@ -19,7 +19,7 @@ class BluePage extends StatelessWidget {
               ElevatedButton(
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  onPressed: () => context.push('/green'),
+                  onPressed: () => context.push('/IngresoFirma'),
                   child: Text("Ir a la pagina verde")),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
