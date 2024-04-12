@@ -80,7 +80,7 @@ class _FormularioParticipantesState extends State<FormularioParticipantes> {
             SizedBox(
               height: 50,
             ),
-            _crearBoton(),
+            BotonRegistrarParticipantes(),
             Divider(),
 
             _visualizarDatos(),
@@ -104,7 +104,7 @@ class _FormularioParticipantesState extends State<FormularioParticipantes> {
     );
   }
 
-  Widget _crearBoton() {
+  Widget BotonRegistrarParticipantes() {
     final estiloBoton = FilledButton.styleFrom(
         textStyle: TextStyle(color: Colors.blue, fontSize: 20));
     return FilledButton(
@@ -125,6 +125,7 @@ class _FormularioParticipantesState extends State<FormularioParticipantes> {
             _email = controllerInputEmail.text;
             _RUC = controllerInputRuc.text;
           });
+          context.push('/AsistenciaRegistrada');
         },
         child: const Align(
             alignment: Alignment.center,

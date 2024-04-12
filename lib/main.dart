@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:registro_asistencia/src/pages/firma/pages/homepage_signature.dart';
 import 'package:registro_asistencia/src/pages/inicio_page.dart';
 import 'package:registro_asistencia/src/pages/prueba/prueba.dart';
 
@@ -28,7 +27,7 @@ class MainApp extends StatelessWidget {
           builder: (context, state) => FormularioParticipantes(),
         ),
         GoRoute(
-          path: '/AsistenciaREgistrada',
+          path: '/AsistenciaRegistrada',
           builder: (context, state) => RedPage(),
         ),
         GoRoute(
