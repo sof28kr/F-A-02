@@ -19,7 +19,7 @@ class _AsistenciaRegistradaState extends State<AsistenciaRegistrada> {
           child: Column(
             children: [
               ElevatedButton(
-                  onPressed: () => context.push('/IngresoFirma'),
+                  onPressed: () => context.push('/FormularioParticipantes'),
                   child: Text('Registrar nuevo Participante')),
               ElevatedButton(
                   onPressed: () => context.push('/MostrarParticipantes'),
