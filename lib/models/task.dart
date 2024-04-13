@@ -5,7 +5,6 @@ const String tablaParti = 'participantes';
 
 class TablaFields {
   final List<String> values = [
-    nro,
     dni,
     ruc,
     nombre,
@@ -14,11 +13,11 @@ class TablaFields {
     email,
     firma,
     fechaRegistro,
+    nro,
   ];
 
   // nombres de la scolumans para la tabla participantes
 
-  static const nro = 'nro';
   static const dni = 'dni';
   static const ruc = 'ruc';
   static const nombre = 'nombre';
@@ -27,11 +26,11 @@ class TablaFields {
   static const email = 'email';
   static const firma = 'firma';
   static const fechaRegistro = 'fechaRegistro';
+  static const nro = 'nro';
 }
 
 @immutable
 class TablaParticipantes {
-  final int? nro;
   final String dni;
   final String ruc;
   final String nombre;
@@ -40,42 +39,45 @@ class TablaParticipantes {
   final String email;
   final String firma;
   final DateTime fechaRegistro;
+  final int? nro;
 
-  const TablaParticipantes(
-      {this.nro,
-      required this.dni,
-      required this.ruc,
-      required this.nombre,
-      required this.telefono,
-      required this.direccion,
-      required this.email,
-      required this.firma,
-      required this.fechaRegistro});
+  const TablaParticipantes({
+    required this.dni,
+    required this.ruc,
+    required this.nombre,
+    required this.telefono,
+    required this.direccion,
+    required this.email,
+    required this.firma,
+    required this.fechaRegistro,
+    this.nro,
+  });
 
-  TablaParticipantes copy(
-          {int? nro,
-          String? dni,
-          String? ruc,
-          String? nombre,
-          String? telefono,
-          String? direccion,
-          String? email,
-          String? firma,
-          DateTime? fechaRegistro}) =>
+  TablaParticipantes copy({
+    String? dni,
+    String? ruc,
+    String? nombre,
+    String? telefono,
+    String? direccion,
+    String? email,
+    String? firma,
+    DateTime? fechaRegistro,
+    int? nro,
+  }) =>
       TablaParticipantes(
-          nro: nro ?? this.nro,
-          dni: dni ?? this.dni,
-          ruc: ruc ?? this.ruc,
-          nombre: nombre ?? this.nombre,
-          telefono: telefono ?? this.telefono,
-          direccion: direccion ?? this.direccion,
-          email: email ?? this.email,
-          firma: firma ?? this.firma,
-          fechaRegistro: fechaRegistro ?? this.fechaRegistro);
+        dni: dni ?? this.dni,
+        ruc: ruc ?? this.ruc,
+        nombre: nombre ?? this.nombre,
+        telefono: telefono ?? this.telefono,
+        direccion: direccion ?? this.direccion,
+        email: email ?? this.email,
+        firma: firma ?? this.firma,
+        fechaRegistro: fechaRegistro ?? this.fechaRegistro,
+        nro: nro ?? this.nro,
+      );
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      TablaFields.nro: nro,
       TablaFields.dni: dni,
       TablaFields.ruc: ruc,
       TablaFields.nombre: nombre,
@@ -83,21 +85,22 @@ class TablaParticipantes {
       TablaFields.direccion: direccion,
       TablaFields.email: email,
       TablaFields.firma: firma,
-      TablaFields.fechaRegistro: fechaRegistro
+      TablaFields.fechaRegistro: fechaRegistro.toIso8601String(),
+      TablaFields.nro: nro,
     };
   }
 
   factory TablaParticipantes.fromMap(Map<String, dynamic> map) {
     return TablaParticipantes(
-        nro: map[TablaFields.nro] != null ? map[TablaFields.nro] as int : null,
-        dni: map[TablaFields.dni] as String,
-        ruc: map[TablaFields.ruc] as String,
-        nombre: map[TablaFields.nombre] as String,
-        telefono: map[TablaFields.telefono] as String,
-        direccion: map[TablaFields.direccion] as String,
-        email: map[TablaFields.email] as String,
-        firma: map[TablaFields.firma] as String,
-        fechaRegistro:
-            DateTime.parse(map[TablaFields.fechaRegistro] as String));
+      dni: map[TablaFields.dni] as String,
+      ruc: map[TablaFields.ruc] as String,
+      nombre: map[TablaFields.nombre] as String,
+      telefono: map[TablaFields.telefono] as String,
+      direccion: map[TablaFields.direccion] as String,
+      email: map[TablaFields.email] as String,
+      firma: map[TablaFields.firma] as String,
+      fechaRegistro: DateTime.parse(map[TablaFields.fechaRegistro] as String),
+      nro: map[TablaFields.nro] != null ? map[TablaFields.nro] as int : null,
+    );
   }
 }

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:registro_asistencia/src/paginas/FormularioParticipantes.dart';
-import 'package:registro_asistencia/src/paginas/MostrarParticipantes.dart';
-import 'package:registro_asistencia/src/paginas/blue_page.dart';
-import 'package:registro_asistencia/src/paginas/IngresoFirma.dart';
-import 'package:registro_asistencia/src/paginas/implementando.dart';
-import 'package:registro_asistencia/src/paginas/red_page.dart';
+import 'package:registro_asistencia/src/paginas/src.dart';
 
 void main() {
   runApp(const MainApp());
