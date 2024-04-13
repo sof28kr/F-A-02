@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:registro_asistencia/src/paginas/FormularioParticipantes.dart';
-import 'package:registro_asistencia/src/app.dart';
 import 'package:registro_asistencia/src/paginas/MostrarParticipantes.dart';
 import 'package:registro_asistencia/src/paginas/blue_page.dart';
 import 'package:registro_asistencia/src/paginas/IngresoFirma.dart';
