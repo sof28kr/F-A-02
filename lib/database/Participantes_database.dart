@@ -4,8 +4,6 @@ import 'package:sqflite/sqflite.dart';
 
 import '/models/task.dart';
 
-import 'package:registro_asistencia/models/task.dart';
-
 @immutable
 class DBParticipantes {
   static const String _databaseName = 'TablaParticipantes.db';
@@ -41,10 +39,9 @@ class DBParticipantes {
   ) async {
     const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     const textType = 'TEXT NOT NULL';
-    const boolType = 'BOOLEAN NOT NULL';
     await db.execute('''
       CREATE TABLE IF NOT EXISTS $tablaParti(
-        ${TablaFields.nro} $idType,
+        
         ${TablaFields.dni} $textType,
         ${TablaFields.ruc} $textType,
         ${TablaFields.nombre} $textType,
@@ -52,6 +49,9 @@ class DBParticipantes {
         ${TablaFields.direccion} $textType,
         ${TablaFields.email} $textType,
         ${TablaFields.firma} $textType,
+        ${TablaFields.fechaRegistro} $textType,
+        ${TablaFields.nro} $idType,
+
       )
     
     ''');
