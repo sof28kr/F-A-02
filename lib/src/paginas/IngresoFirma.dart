@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:registro_asistencia/src/paginas/FormularioParticipantes.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 
