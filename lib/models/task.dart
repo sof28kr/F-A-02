@@ -31,7 +31,7 @@ class TablaFields {
 
 @immutable
 class TablaParticipantes {
-  final String dni;
+  final int? dni;
   final String ruc;
   final String nombre;
   final String telefono;
@@ -54,7 +54,7 @@ class TablaParticipantes {
   });
 
   TablaParticipantes copy({
-    String? dni,
+    int? dni,
     String? ruc,
     String? nombre,
     String? telefono,
@@ -92,7 +92,7 @@ class TablaParticipantes {
 
   factory TablaParticipantes.fromMap(Map<String, dynamic> map) {
     return TablaParticipantes(
-      dni: map[TablaFields.dni] as String,
+      dni: map[TablaFields.dni] != null ? map[TablaFields.dni] as int : null,
       ruc: map[TablaFields.ruc] as String,
       nombre: map[TablaFields.nombre] as String,
       telefono: map[TablaFields.telefono] as String,

@@ -37,12 +37,13 @@ class DBParticipantes {
     Database db,
     int version,
   ) async {
-    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const idType = 'INTEGER AUTOINCREMENT';
+    const dniType = 'INTEGER PRIMARY KEY';
     const textType = 'TEXT NOT NULL';
     await db.execute('''
       CREATE TABLE IF NOT EXISTS $tablaParti(
         
-        ${TablaFields.dni} $textType,
+        ${TablaFields.dni} $dniType,
         ${TablaFields.ruc} $textType,
         ${TablaFields.nombre} $textType,
         ${TablaFields.telefono} $textType,
@@ -51,9 +52,7 @@ class DBParticipantes {
         ${TablaFields.firma} $textType,
         ${TablaFields.fechaRegistro} $textType,
         ${TablaFields.nro} $idType,
-
       )
-    
     ''');
   }
 
@@ -64,28 +63,27 @@ class DBParticipantes {
   Future<TablaParticipantes> createTablaParticipantes(
       TablaParticipantes participantes) async {
     final db = await instance.database;
-    final nro = await db.insert(tablaParti, participantes.toMap());
+    final dni = await db.insert(tablaParti, participantes.toMap());
 
-    return participantes.copy(nro: nro);
+    return participantes.copy(dni: dni);
   }
 
   //READ
 
-  Future<TablaParticipantes> readTablaParticipantes(int nro) async {
+  Future<TablaParticipantes> readTablaParticipantes(int dni) async {
     final db = await instance.database;
 
     final ParticipantesData = await db.query(
       tablaParti,
       columns: TablaFields().values,
-      where: '${TablaFields.nro} = ?',
-      whereArgs: [nro],
+      where: '${TablaFields.dni} = ?',
+      whereArgs: [dni],
     );
 
     if (ParticipantesData.isNotEmpty) {
       return TablaParticipantes.fromMap(ParticipantesData.first);
     } else {
-      throw Exception(
-          'No se encontro un participante en ese numero de registro');
+      throw Exception('No se encontro un participante en ese numero de dni');
     }
   }
 
@@ -111,20 +109,20 @@ class DBParticipantes {
     return await db.update(
       tablaParti,
       tablaParticipantes.toMap(),
-      where: '${TablaFields.nro} = ? ',
-      whereArgs: [tablaParticipantes.nro],
+      where: '${TablaFields.dni} = ? ',
+      whereArgs: [tablaParticipantes.dni],
     );
   }
 
   // DELETE
 
-  Future<int> deleteTablaParticipantes(int nro) async {
+  Future<int> deleteTablaParticipantes(int dni) async {
     final db = await instance.database;
 
     return await db.delete(
       tablaParti,
-      where: '${TablaFields.nro} = ?',
-      whereArgs: [nro],
+      where: '${TablaFields.dni} = ?',
+      whereArgs: [dni],
     );
   }
 
