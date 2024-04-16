@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+final _formKey = GlobalKey<FormState>();
+
 class FormularioParticipantes extends StatefulWidget {
   const FormularioParticipantes({Key? key}) : super(key: key);
 
@@ -10,6 +12,9 @@ class FormularioParticipantes extends StatefulWidget {
 }
 
 class _FormularioParticipantesState extends State<FormularioParticipantes> {
+  late final TextEditingController _dniController2;
+  late final TextEditingController _nombresController2;
+
   String _nombre = '';
   String _dni = '';
   String _telefono = '';
@@ -31,10 +36,21 @@ class _FormularioParticipantesState extends State<FormularioParticipantes> {
   final TextEditingController controllerInputRuc = TextEditingController();
 
   @override
+  void initState() {}
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('Evento 01'),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ))
+          ],
         ),
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
@@ -82,6 +98,15 @@ class _FormularioParticipantesState extends State<FormularioParticipantes> {
             ),
             BotonRegistrarParticipantes(),
             Divider(),
+
+            // implementacion de Form with keys
+
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [],
+              ),
+            ),
 
             _visualizarDatos(),
           ],

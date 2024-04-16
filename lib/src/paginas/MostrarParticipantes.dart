@@ -20,7 +20,7 @@ class _MostrarParticipantesState extends State<MostrarParticipantes> {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => FormularioParticipantes()));
           },
-          child: const Icon(Icons.new_label)),
+          child: const Icon(Icons.add)),
     );
   }
 }
