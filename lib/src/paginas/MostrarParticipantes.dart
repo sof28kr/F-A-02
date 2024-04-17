@@ -18,7 +18,7 @@ class _MostrarParticipantesState extends State<MostrarParticipantes> {
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => FormularioParticipantes()));
+                MaterialPageRoute(builder: (_) => AgregarParticipantes()));
           },
           child: const Icon(Icons.add)),
     );

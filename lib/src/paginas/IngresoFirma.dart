@@ -17,7 +17,7 @@ class IngresoFirma extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.green,
         appBar: AppBar(
-          title: Text("Pagina Verde"),
+          title: Text("Ingreso de Firma"),
         ),
         body: Center(
           child: Column(
@@ -61,14 +61,6 @@ class IngresoFirma extends StatelessWidget {
   }
 
   Future<void> onSubmit(BuildContext context) async {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) => Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
-
     try {
       final image = await keySignaturePad.currentState?.toImage();
       final imageSignature =
@@ -95,7 +87,7 @@ class IngresoFirma extends StatelessWidget {
         SnackBar(
           content: Text('¡Firma guardada correctamente!'),
           duration:
-              Duration(seconds: 2), // Ajusta la duración según tu preferencia
+              Duration(seconds: 1), // Ajusta la duración según tu preferencia
         ),
       ); // Close the dialog
     } catch (error) {

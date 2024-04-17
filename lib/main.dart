@@ -32,7 +32,8 @@ class MainApp extends StatelessWidget {
         ),
         GoRoute(
           path: '/inicio',
-          builder: (context, state) => Implementando(), //FormularioPage()
+          builder: (context, state) =>
+              MostrarParticipantes(), //FormularioPage()
         ),
         GoRoute(
           path: '/AgregarParticipantes',

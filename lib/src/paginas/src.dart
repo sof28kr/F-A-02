@@ -6,4 +6,6 @@ export 'package:registro_asistencia/src/paginas/red_page.dart';
 export 'package:registro_asistencia/src/paginas/AgregarParticipantes.dart';
 
 
+
+
 // barrel para las carpetas, reduce el numero de imports

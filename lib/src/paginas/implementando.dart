@@ -20,7 +20,7 @@ class _ImplementandoState extends State<Implementando> {
       body: Column(
         children: [
           ElevatedButton(
-              onPressed: () => context.push('/AgregandoParticipantes'),
+              onPressed: () => context.push('/AgregarParticipantes'),
               child: Text('Registrar Participantes'))
         ],
       ),
