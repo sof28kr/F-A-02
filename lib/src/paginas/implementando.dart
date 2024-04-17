@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+// por el momento esta es la primera pagina que se abre al abrir la app
+
 class Implementando extends StatefulWidget {
   const Implementando({super.key});
 
@@ -18,7 +20,7 @@ class _ImplementandoState extends State<Implementando> {
       body: Column(
         children: [
           ElevatedButton(
-              onPressed: () => context.push('/FormularioParticipantes'),
+              onPressed: () => context.push('/AgregandoParticipantes'),
               child: Text('Registrar Participantes'))
         ],
       ),
