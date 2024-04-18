@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
-import '/models/task.dart';
+import 'package:registro_asistencia/models/ParticipantesModelo.dart';
 
 @immutable
 class DBParticipantes {
@@ -89,7 +88,7 @@ class DBParticipantes {
 
   // mostrar todos los registro
 
-  Future<List<TablaParticipantes>> MostrarTodosLosParticipantes() async {
+  Future<List<TablaParticipantes>> ReadAllParticipantes() async {
     final db = await instance.database;
 
     final result =

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:registro_asistencia/extensiones/extensions.dart';
-import 'package:registro_asistencia/models/task.dart';
 import 'package:go_router/go_router.dart';
+import 'package:registro_asistencia/src/paginas/src.dart';
+import 'package:registro_asistencia/database/Participantes_database.dart';
 
 final _formKey = GlobalKey<FormState>();
 
