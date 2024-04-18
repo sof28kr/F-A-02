@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:registro_asistencia/database/Participantes_database.dart';
-import 'package:registro_asistencia/models/task.dart';
+import 'package:registro_asistencia/models/ParticipantesModelo.dart';
+
 import 'package:registro_asistencia/src/paginas/src.dart';
+import 'package:registro_asistencia/widgets/Participantes_list_title.dart';
 
 class MostrarParticipantes extends StatefulWidget {
   const MostrarParticipantes({super.key});
@@ -12,20 +14,20 @@ class MostrarParticipantes extends StatefulWidget {
 
 class _MostrarParticipantesState extends State<MostrarParticipantes> {
   bool EstaCargando = false;
-  List<TablaFields> TablaParticipantes = [];
+  List<TablaParticipantes> tablaParticipantes = [];
 
   Future<void> getAllParticipantes() async {
     setState(() => EstaCargando = true);
 
-    TablaParticipantes =
-        await DBParticipantes.instance.MostrarTodosLosParticipantes();
+    tablaParticipantes = await DBParticipantes.instance.ReadAllParticipantes();
+
+    setState(() => EstaCargando = false);
   }
 
   @override
   void initState() {
     super.initState();
-    MostrarParticipantes();
-    //TODO
+    getAllParticipantes();
   }
 
   @override
@@ -56,10 +58,16 @@ class _MostrarParticipantesState extends State<MostrarParticipantes> {
 
   Widget _buildListaParticipantes() {
     return ListView.builder(
-      itemCount: TablaParticipantes.length,
+      itemCount: tablaParticipantes.length,
       itemBuilder: (context, index) {
-        final TablaParticipantess = TablaParticipantes[index];
+        final TablaParticipantes = tablaParticipantes[index];
+        return ParticipantesListTitle(
+          tablaParticipantes: TablaParticipantes,
+        );
       },
     );
   }
 }
+
+
+//https://www.youtube.com/watch?v=tK66XTrYE9k 28
