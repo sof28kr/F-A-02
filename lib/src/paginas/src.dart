@@ -4,7 +4,7 @@ export 'package:registro_asistencia/src/paginas/IngresoFirma.dart';
 export 'package:registro_asistencia/src/paginas/implementando.dart';
 export 'package:registro_asistencia/src/paginas/red_page.dart';
 export 'package:registro_asistencia/src/paginas/AgregarParticipantes.dart';
-
+export 'package:registro_asistencia/database/Participantes_database.dart';
 
 
 
