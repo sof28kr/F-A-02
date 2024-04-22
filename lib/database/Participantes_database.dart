@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:registro_asistencia/models/ParticipantesModelo.dart';
+
+import '../models/ParticipantesModelo.dart';
 
 @immutable
 class DBParticipantes {
@@ -59,7 +60,7 @@ class DBParticipantes {
 
   //CREATE
 
-  Future<TablaParticipantes> createTablaParticipantes(
+  Future<TablaParticipantes> createParticipantes(
       TablaParticipantes participantes) async {
     final db = await instance.database;
     final dni = await db.insert(tablaParti, participantes.toMap());
@@ -69,7 +70,7 @@ class DBParticipantes {
 
   //READ
 
-  Future<TablaParticipantes> readTablaParticipantes(int dni) async {
+  Future<TablaParticipantes> readParticipantes(int dni) async {
     final db = await instance.database;
 
     final ParticipantesData = await db.query(
@@ -115,7 +116,7 @@ class DBParticipantes {
 
   // DELETE
 
-  Future<int> deleteTablaParticipantes(int dni) async {
+  Future<int> deleteParticipantes(int dni) async {
     final db = await instance.database;
 
     return await db.delete(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:registro_asistencia/extensiones/extensions.dart';
-import 'package:go_router/go_router.dart';
-import 'package:registro_asistencia/src/paginas/src.dart';
 import 'package:registro_asistencia/database/Participantes_database.dart';
+import 'package:registro_asistencia/extensiones/extensions.dart';
+import 'package:registro_asistencia/models/ParticipantesModelo.dart';
+import 'package:go_router/go_router.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -45,7 +45,7 @@ class _AgregarParticipantesState extends State<AgregarParticipantes> {
   }
 
   Future<void> agregar_participantes() async {
-    final TablaParticipantess = TablaParticipantes(
+    final tablaParticipantes = TablaParticipantes(
         dni: int.parse(_DNIController.text),
         ruc: _RucController.text,
         nombre: _NombreController.text,
@@ -54,6 +54,7 @@ class _AgregarParticipantesState extends State<AgregarParticipantes> {
         email: _EmailController.text,
         firma: _Firmacontroller,
         fechaRegistro: _startDate);
+    await DBParticipantes.instance.createParticipantes(tablaParticipantes);
   }
 
   @override
@@ -177,7 +178,7 @@ class _AgregarParticipantesState extends State<AgregarParticipantes> {
                           )),
                     ]),
                 FilledButton(
-                    onPressed: () {},
+                    onPressed: agregar_participantes,
                     child: const Text('Registrar Participantes'))
               ],
             ),
